@@ -2,7 +2,7 @@
 
 class Mypage::ProfilesController < Mypage::BaseController
   def show
-    @user = if params[:id]
+    @user = if params[:id] && params[:id] != current_user.id
               User.find(params[:id])
             else
               current_user
