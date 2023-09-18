@@ -2,7 +2,11 @@
 
 class Mypage::ProfilesController < Mypage::BaseController
   def show
-    @user = current_user
+    @user = if params[:id]
+              User.find(params[:id])
+            else
+              current_user
+            end
   end
 
   def update
