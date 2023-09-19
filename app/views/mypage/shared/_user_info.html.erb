@@ -17,6 +17,9 @@
           </h2>
           <p class="mb-0 d-block"><%= @user.email %></p>
         </div>
+        <div>
+          <%= render 'mypage/shared/follow_button', user: @user %>
+        </div>
       </div>
     </div>
   </div>
