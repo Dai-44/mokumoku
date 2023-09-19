@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :followers, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :followeds, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :following_users, through: :followers, source: :followed
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -87,7 +88,7 @@ class User < ApplicationRecord
     followers.find_by(followed_id: user_id).destroy
   end
 
-  def following?(user_id)
-    followers.include?(followed_id: user_id)
+  def following?(user)
+    following_users.include?(user)
   end
 end
