@@ -1,13 +1,7 @@
 # frozen_string_literal: true
 
 class Mypage::ProfilesController < Mypage::BaseController
-  def show
-    @user = if params[:id] && params[:id] != current_user.id
-              User.find(params[:id])
-            else
-              current_user
-            end
-  end
+  def show; end
 
   def update
     @user = User.find(current_user.id)
