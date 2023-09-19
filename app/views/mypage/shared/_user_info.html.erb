@@ -18,7 +18,9 @@
           <p class="mb-0 d-block"><%= @user.email %></p>
         </div>
         <div>
-          <%= render 'mypage/shared/follow_button', user: @user %>
+          <% if @user != current_user %>
+            <%= render 'mypage/shared/follow_button', user: @user %>
+          <% end %>
         </div>
       </div>
     </div>
