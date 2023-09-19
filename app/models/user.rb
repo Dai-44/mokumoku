@@ -78,4 +78,16 @@ class User < ApplicationRecord
   def allow_liked_event_notification?
     notification_timings.liked_event.present?
   end
+
+  def follow(user_id)
+    followers.create(followed_id: user_id)
+  end
+
+  def unfollow(user_id)
+    followers.find_by(followed_id: user_id).destroy
+  end
+
+  def following?(user_id)
+    followers.include?(followed_id: user_id)
+  end
 end
