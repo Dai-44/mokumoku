@@ -1,0 +1,28 @@
+<div class="py-3">
+  <div class="pt-5 pb-5">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="mb-0">プロフィール</h3>
+        </div>
+        <div class="card-body">
+          <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center mb-4 mb-lg-0">
+              <%= image_tag @user.decorate.avatar, class: 'avatar-xl rounded-circle' %>
+              <div class="ms-3">
+                <h4 class="mb-3"><%= @user.name %></h4>
+              </div>
+            </div>
+          </div>
+          <hr class="my-5">
+          <div>
+            <h4 class="mb-0">Hobby</h4>
+            <p class="mb-4"><%= @user.hobby %></p>
+            <h4 class="mb-0">Profile</h4>
+            <p class="mb-4"><%= @user.profile %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
