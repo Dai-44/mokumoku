@@ -10,7 +10,10 @@
             <div class="d-flex align-items-center mb-4 mb-lg-0">
               <%= image_tag @user.decorate.avatar, class: 'avatar-xl rounded-circle' %>
               <div class="ms-3">
-                <h4 class="mb-3"><%= @user.name %></h4>
+                <h4 class="mb-3">
+                  <%= @user.name %>
+                  <%= render 'shared/follow_button', user: @user %>
+                </h4>
               </div>
             </div>
           </div>
