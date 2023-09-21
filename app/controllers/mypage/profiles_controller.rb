@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Mypage::ProfilesController < Mypage::BaseController
-  def show; end
+  def show
+    @user = current_user
+  end
 
   def update
     @user = User.find(current_user.id)
